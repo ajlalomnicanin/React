@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.261);
+  border-radius: 8px;
+  width: 400px;
+  height: 100px;
+  margin-left: auto;
+}
+.main1 {
+  text-align: left;
+  line-height: 0.4;
+  margin: 10px 0px 0px 10px;
+}
+img {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  margin: 10px 0px 0px 10px;
+}
