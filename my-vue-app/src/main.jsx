@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 // import Avatar from "./6/Avatar";
-import Avatar from "./6/Avatar";
+import BlogPost from "./5/BlogPost";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <div
+    <BlogPost />
+    <BlogPost />
+    {/* <div
       style={{
         display: "flex",
         flexWrap: "wrap",
@@ -22,6 +24,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Avatar name="Martin Eden" id="Software Engineer" />
       <Avatar name="Martin Eden" id="Software Engineer" />
       <Avatar name="Martin Eden" id="Software Engineer" />
-    </div>
+    </div> */}
   </React.StrictMode>
 );

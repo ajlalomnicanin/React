@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 10px 0px 10px;
+}
+.left {
+  text-align: center;
+  line-height: 0.4;
+  padding: 20px;
+  width: 200px;
+}
+.right {
+  width: 900px;
+}
+a {
+  text-decoration: none;
+  color: rgb(3, 125, 239);
+  font-size: large;
+}
