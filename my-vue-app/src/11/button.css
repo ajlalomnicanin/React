@@ -1,0 +1,10 @@
+button {
+  border: 0px;
+  background: blue;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+.borderBlack {
+  border: 3px solid black;
+}
