@@ -1,0 +1,22 @@
+#card {
+  width: 200px;
+  height: 300px;
+  border: 1px solid black;
+  background-color: rgb(86, 146, 146);
+  border-radius: 5px;
+  margin: auto;
+}
+.header {
+  margin-top: 50px;
+  background-color: rgb(26, 175, 175);
+  height: 200px;
+}
+.title {
+  font-size: larger;
+  text-transform: uppercase;
+  margin-left: 35px;
+}
+.subtitle{
+    font-size: medium;
+    
+}

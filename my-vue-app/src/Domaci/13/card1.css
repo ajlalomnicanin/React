@@ -1,0 +1,29 @@
+.main {
+  width: 400px;
+  height: 370px;
+  border: 2px solid rgb(214, 208, 208);
+  border-radius: 10px;
+}
+/* .main1 {
+  margin: 150px 30px 0px;
+}
+.main1 h2 {
+  color: grey;
+  font-size: medium;
+}
+.main1 h1 {
+  font-size: 22px;
+}
+.main p {
+  color: rgb(59, 59, 59);
+}
+button {
+  border: 0px;
+  background-color: none;
+  color: rgb(20, 20, 123);
+} */
+/* centriran text */
+.centered {
+    background-color: aqua;
+  margin: 0 auto;
+}
