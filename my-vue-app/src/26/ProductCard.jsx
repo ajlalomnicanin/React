@@ -8,24 +8,25 @@ import Rating from "./rating";
 
 const ProductCard = (props) => {
   const [photo, getPhoto] = useState(props.date.imgs.white);
+
   console.log(props);
   return (
     <div>
       <div>
-        <img src={photo} alt="" />
+        <img src={photo} alt="" width={400} height={400} />
       </div>
       <div>
         <Text type="t1" text="BRAND NAME" />
-        <Text type="t2" text="The Catcher in the Rye" />
+        <Text type="t2" text={props.data.brandTitle} />
         <div>
-          <Rating value={4} />
-          <Text type="t3" text={""} />
+          <Rating value={props.data.reviews} />
+          <Text type="t3" text={props.data.reviewsCount + " Reviews"} />
 
           {/* <SocialIcon type="fb" />
           <SocialIcon type="twitter" />
           <SocialIcon type="intagram" /> */}
         </div>
-        <Text type="t3" text="..." />
+        <Text type="t3" text={props.data.description} />
 
         <div>
           <Text type="t3" text="Color" />
@@ -33,12 +34,12 @@ const ProductCard = (props) => {
           <RoundButton color="black" />
           <RoundButton color="white" />
           <Text type="t3" text="Size" />
-          <Select list={["s", "m", "l", "xl"]} />
+          <Select list={props.data.sizes} />
         </div>
         {/* <Divider /> */}
 
         <div>
-          <Text type="t4" text="48 $" />
+          <Text type="t4" text={props.data.price + " $"} />
           <Button title="Button" />
           <Button />
         </div>

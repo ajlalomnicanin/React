@@ -31,9 +31,11 @@ const Class21 = () => {
         instagram: "https://www.instagram.com/newbrand2",
       },
       imgs: {
-        blue: "newest-blue-product.jpg",
-        white: "newest-white-product.jpg",
-        black: "newest-black-product.jpg",
+        blue: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fbeauty%2F&psig=AOvVaw0eJP9vtzw5m5I8oVKmRnFY&ust=1699465606377000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCLDFuf64soIDFQAAAAAdAAAAABAE",
+        white:
+          "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-photos%2Fsad-love&psig=AOvVaw0eJP9vtzw5m5I8oVKmRnFY&ust=1699465606377000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCLDFuf64soIDFQAAAAAdAAAAABAJ",
+        black:
+          "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffree-picture&psig=AOvVaw0eJP9vtzw5m5I8oVKmRnFY&ust=1699465606377000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCLDFuf64soIDFQAAAAAdAAAAABAS",
       },
       sizes: ["s", "m", "l", "xl"],
       price: 69.99,
