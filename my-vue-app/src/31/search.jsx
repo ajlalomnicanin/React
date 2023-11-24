@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Pagination from "./Pagination";
 
-function Search() {
+// paginacija postoji samo ako je reusult array veci od nule
+// prvo i drugo dugme rade samo ako je broj quotova veci od 1
+
+const Class26 = () => {
   const [data, setData] = useState({});
-  const [quotes, setQuotes] = useState("");
+  const [searchQ, setSearchQ] = useState("");
+  const [limit, setLimit] = useState(20);
+
   const getQuote = async () => {
+    if (searchQ === 0) {
+      return;
+    }
     try {
       let apiURL = "https://api.quotable.io/search/quotes";
 
-      if (quotes !== "" && quotes !== "0") {
-        apiURL += "?query=" + quotes;
-      }
+      apiURL += "?query=" + searchQ;
+      apiURL += "&limit=" + limit;
 
       const response = await fetch(apiURL);
       const responseData = await response.json();
@@ -19,18 +27,116 @@ function Search() {
       console.log(error);
     }
   };
-  console.log(data);
+
+  const nextPage = async () => {
+    if (searchQ === 0) {
+      return;
+    }
+    try {
+      if (data.page === data.totalPages) {
+        return;
+      }
+
+      let apiURL = "https://api.quotable.io/search/quotes";
+
+      const toNextPage = data?.page + 1;
+
+      apiURL += "?query=" + searchQ;
+      apiURL += "&page=" + toNextPage;
+      apiURL += "&limit=" + limit;
+
+      const response = await fetch(apiURL);
+      const responseData = await response.json();
+
+      setData(responseData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const previousPage = async () => {
+    if (searchQ === 0) {
+      return;
+    }
+    try {
+      if (data.page === 1) {
+        return;
+      }
+
+      let apiURL = "https://api.quotable.io/search/quotes";
+
+      const toNextPage = data?.page - 1;
+
+      apiURL += "?query=" + searchQ;
+      apiURL += "&page=" + toNextPage;
+      apiURL += "&limit=" + limit;
+
+      const response = await fetch(apiURL);
+      const responseData = await response.json();
+
+      setData(responseData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const navigatePage = async (page) => {
+    if (searchQ === 0) {
+      return;
+    }
+    try {
+      if (data.page === page) {
+        return;
+      }
+
+      let apiURL = "https://api.quotable.io/search/quotes";
+
+      const toNextPage = page;
+
+      apiURL += "?query=" + searchQ;
+      apiURL += "&page=" + toNextPage;
+      apiURL += "&limit=" + limit;
+
+      const response = await fetch(apiURL);
+      const responseData = await response.json();
+
+      setData(responseData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <input
+        value={searchQ}
         type="text"
-        name="quotes"
-        value={quotes}
-        onChange={(e) => setQuotes(e.target.value)}
-        placeholder="quotes"
-      />
+        onChange={(e) => setSearchQ(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            console.log(e.key);
+            getQuote();
+          }
+          if (e.key === "Escape") {
+            // getQuote("");
+            // setData({});
+          }
+        }}
+      />{" "}
       <button onClick={getQuote}>Get quote</button>
-
+      <p>quotes per page</p>
+      <input
+        type="number"
+        placeholder="quotes per page"
+        value={limit}
+        onChange={(e) => setLimit(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            console.log(e.key);
+            getQuote();
+          }
+        }}
+      />
       <div>
         {data && data.results?.length === 0 && <p>No quotes found</p>}
         {data?.results?.map((quote) => {
@@ -38,9 +144,10 @@ function Search() {
             <div
               key={quote._id}
               style={{
-                border: "1px solid black",
+                border: "1px black solid",
                 padding: 10,
                 marginBottom: 10,
+                borderRadius: 4,
               }}
             >
               <p>{quote.author}</p>
@@ -48,26 +155,22 @@ function Search() {
             </div>
           );
         })}
-      </div>
-      <div style={{ padding: "15px" }}>
-        <button style={{ borderRadius: "50%" }}>{"<"}</button>
-        <button
-          style={{
-            borderRadius: "50%",
-            backgroundColor:
-              data?.results?.length === 1 ? "white" : "buttonface",
+        <Pagination
+          page={data.page}
+          totalPages={data.totalPages}
+          previousPage={() => {
+            previousPage;
           }}
-        >
-          1
-        </button>
-        <button style={{ borderRadius: "50%" }}>2</button>
-        <button style={{ borderRadius: "50%" }}>3</button>
-        <button style={{ borderRadius: "50%" }}>4</button>
-        <button style={{ borderRadius: "50%" }}>{">"}</button>
+          nextPage={() => {
+            nextPage;
+          }}
+          navigatePage={() => {
+            navigatePage;
+          }}
+        />
       </div>
     </div>
   );
-}
-
-export default Search;
+};
+export default Class26;
 // rfce

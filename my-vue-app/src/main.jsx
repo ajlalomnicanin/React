@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import App from "./31/31.1/App";
+import Class29 from "./components/33";
+import SimpleContextProvider from "./components/33/SampleContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-   <App/>
+    <SimpleContextProvider>
+      <Class29 />
+    </SimpleContextProvider>
   </React.StrictMode>
 );
