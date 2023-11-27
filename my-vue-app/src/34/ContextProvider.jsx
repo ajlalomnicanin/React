@@ -12,6 +12,8 @@ const ContextProvider = (props) => {
         const response = await fetch("https://dummyjson.com/users/1");
         const responseData = await response.json();
 
+        console.log(responseData);
+
         setUser(responseData);
         setLoading(false);
       } catch (error) {
@@ -27,12 +29,12 @@ const ContextProvider = (props) => {
     return <div>loading</div>;
   }
 
-  if (!user) {
-    return <div>not Authorized</div>;
-  }
+  // if (!user) {
+  //   return <div>not Authorized</div>;
+  // }
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {props.children}
     </UserContext.Provider>
   );
