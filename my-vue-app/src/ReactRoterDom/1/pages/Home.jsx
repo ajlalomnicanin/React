@@ -1,5 +1,6 @@
 import { useContent } from "react";
 import { AppContext } from "../app";
+
 export const Home = () => {
   const { userName } = useContent(AppContext);
   return (

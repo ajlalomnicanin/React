@@ -12,8 +12,6 @@ const ContextProvider = (props) => {
         const response = await fetch("https://dummyjson.com/users/1");
         const responseData = await response.json();
 
-        console.log(responseData);
-
         setUser(responseData);
         setLoading(false);
       } catch (error) {

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "./ContextProvider";
 
-function LoginForm() {
+const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUser } = useContext(UserContext);
 
   function isEmailValid(email) {
     // Regular expression for a simple email validation
@@ -10,31 +12,47 @@ function LoginForm() {
 
     return emailRegex.test(email);
   }
-  const onLogin=()=>{
+
+  const loginUser = async () => {
+    try {
+      const response = await fetch("https://dummyjson.com/users/1");
+      const responseData = await response.json();
+
+      setUser(responseData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onLogin = () => {
     if (isEmailValid(email)) {
-        console.log(first)
-  }else {
-    alert("Email is not correct")
-  }
+      loginUser();
+    } else {
+      alert("Email is not correct");
+    }
+  };
+
   return (
     <div>
+      <button>Login</button>
+      <button>SignUp</button>
+
       <input
         type="text"
+        value={email}
         placeholder="email"
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <input
         type="password"
+        value={password}
         placeholder="password"
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={}>Log in</button>
+      <button onClick={onLogin}>Login</button>
     </div>
   );
-}
-
+};
 export default LoginForm;
+
+// validation

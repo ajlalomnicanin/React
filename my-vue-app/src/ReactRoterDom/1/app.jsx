@@ -5,7 +5,7 @@ import { Navbar } from "./pages/Navbar";
 import { useState, createContext } from "react";
 import { Profile } from "./pages/Profile";
 
-const AppContext = createContext();
+export const AppContext = createContext();
 export const App = () => {
   const [userName, setUserName] = useState();
   return (
