@@ -21,25 +21,38 @@ function Login() {
     return emailRegex.test(email);
   }
 
+  const isPasswordValid = (pass) => {
+    const reg =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!$#&*.\\\-_+])[A-Za-z\d@!$#&*.\\\-_+]{8,}$/;
+    return reg.test(pass)
+      ? "Ispravan"
+      : "Your password should have a minimum of 8 characters and contain a mix of letters, numbers, and special characters. For example, you could use Pass12# as a valid password.";
+  };
+
   const handleLogin = async () => {
     let valid = true;
 
     if (!isEmailValid(email)) {
-      setEmailError("email is very very wrong");
+      setEmailError("Email is very wrong!");
       valid = false;
     } else {
       setEmailError("");
     }
 
-    if (password.length < 8) {
-      setPasswordError("Password wrong");
+    // if (password.length < 8) {
+    //   setPasswordError("Password wrong");
+    //   valid = false;
+    // } else {
+    //   setPasswordError("");
+    // }
+
+    if (isPasswordValid(password) !== "Ispravan") {
+      setPasswordError(isPasswordValid(password));
       valid = false;
+
+      // login funkcija
     } else {
       setPasswordError("");
-    }
-
-    if (valid) {
-      // login funkcija
     }
   };
 
@@ -48,7 +61,11 @@ function Login() {
       <input value={email} onChange={(e) => setEmail(e.target.value)} />
       {emailError && <p>{emailError}</p>}
 
-      <input value={password} onChange={(e) => setPassword(e.target.value)} />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
       {passwordError && <p>{passwordError}</p>}
 
       <button onClick={handleLogin}>Login</button>
