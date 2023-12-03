@@ -1,0 +1,51 @@
+/* Opšti stil */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Main container */
+.main {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Input polja */
+.main input {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Gumb za logovanje */
+.main button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Opasnost kod nevažećih podataka */
+.main p {
+  color: red;
+  margin-bottom: 20px;
+}
+
+/* Opasnost kod nevažećih podataka */
+.main button:hover {
+  background-color: #0056b3;
+}
