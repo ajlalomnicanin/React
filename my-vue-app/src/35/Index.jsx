@@ -1,4 +1,4 @@
-// import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // import HomePage from "./HomePage";
 // import Register from "./Register";
 // import Login from "./Login";
@@ -46,3 +46,11 @@ const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
 ]);
+
+export const Class31 = () => {
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
+};

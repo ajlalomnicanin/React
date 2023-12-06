@@ -114,6 +114,11 @@
 // validacija za email je da je to validan email
 // i mora da ima login button koji loguje korisnika
 
+// mora da ima dva inputa i validaciju tih inputa
+// inputi su email i password
+// validacija za email je da je to validan email
+// i mora da ima login button koji loguje korisnika
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -123,6 +128,7 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+
 
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -148,6 +154,10 @@ function Login() {
 
       const data = await response.json();
 
+      if (data.message === "") {
+        throw new Error("Invalid credentials.");
+
+      }
       localStorage.setItem("token", data.token);
 
       navigate("/");

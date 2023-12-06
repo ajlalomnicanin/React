@@ -66,6 +66,7 @@ function Register() {
         }),
       });
       const data = await response.json();
+      navigator("/login");
 
       console.log(data);
     } catch (error) {

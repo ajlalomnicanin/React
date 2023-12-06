@@ -5,7 +5,7 @@
 
 import { createContext, useEffect, useState } from "react";
 
-const UserContext = createContext({});
+export const UserContext = createContext({});
 
 const UserContextProvider = (props) => {
   const [user, setUser] = useState();
@@ -39,7 +39,12 @@ const UserContextProvider = (props) => {
   }, []);
 
   if (!user) {
-    return <div>not authorized</div>;
+    return (
+      <div>
+        <p>not authorized</p>
+        <button onClick={() => navigator("/login")}>go to login page </button>
+      </div>
+    );
   }
 
   return (
