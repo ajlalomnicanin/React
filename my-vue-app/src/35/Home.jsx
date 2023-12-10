@@ -9,7 +9,7 @@ function Home() {
       <p>Lastname is:{user.lastName}</p>
       <p>Email is: {user.email}</p>
       <p>Age is: {user.age}</p>
-      <p>Address is : {user.address.address}</p>
+      <p>Eye color is : {user.eyeColor}</p>
       <button
         onClick={() => {
           setUser(undefined);

@@ -51,9 +51,12 @@
 // i naravno button za register
 
 //za napredne:  koristiti add user rutu za register sa dummy json vebsajta
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const handleRegister = async () => {
+    const navigate = useNavigate();
     try {
       const response = await fetch("https://dummyjson.com/users/add", {
         method: "POST",
@@ -66,7 +69,7 @@ function Register() {
         }),
       });
       const data = await response.json();
-      navigator("/login");
+      navigate("/login");
 
       console.log(data);
     } catch (error) {
