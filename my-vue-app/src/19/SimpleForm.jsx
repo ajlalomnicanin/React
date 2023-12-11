@@ -11,7 +11,7 @@ const SimpleForm = () => {
   const [error, setError] = useState({
     name: "",
     surname: "",
-    : "",
+    email: "",
     password: "",
   });
 
